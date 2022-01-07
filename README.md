@@ -18,8 +18,7 @@
 ![](https://img.shields.io/badge/Editor-Android_Studio-informational?style=flat&logo=android-studio&logoColor=cyan&color=3DDC84)
 ![](https://img.shields.io/badge/Code-Dart-informational?style=flat&logo=Dart&logoColor=aqua&color=87ceeb)
 ![](https://img.shields.io/badge/Framework-Flutter-informational?style=flat&logo=flutter&logoColor=cyan&color=00FFFF)
-![](https://img.shields.io/badge/SQLite-07405E?style=flat&logo=sqlite&logoColor=white)
-![](https://img.shields.io/badge/SQLite-07405E?-informational?style=flat&logo=sqlite&logoColor=cyan&color=00FFFF)
+![](https://img.shields.io/badge/SQLite-07405E?-informational?style=flat&logo=sqlite&logoColor=cyan&color=white)
 
 ## &#x1f4c8; GitHub Stats
 
