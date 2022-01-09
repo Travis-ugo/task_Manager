@@ -3,8 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
 import 'DataBase/database_helperclass.dart';
 import 'DataBase/grosary_class.dart';
-import 'Views/home_page.dart';
-import 'Views/new_todo.dart';
+import 'Views/note_record.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,7 +22,7 @@ class MyApp extends StatelessWidget {
         textTheme: GoogleFonts.montserratTextTheme(),
       ),
       title: "TodoApp",
-      home: const HomePage(),
+      home: const NOteRecordView(),
     );
   }
 }
