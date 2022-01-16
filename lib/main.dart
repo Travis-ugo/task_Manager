@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:iconly/iconly.dart';
-import 'DataBase/database_helperclass.dart';
-import 'DataBase/grosary_class.dart';
-import 'Views/note_record.dart';
+import 'Views/drawer.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,7 +19,7 @@ class MyApp extends StatelessWidget {
         textTheme: GoogleFonts.montserratTextTheme(),
       ),
       title: "TodoApp",
-      home: const NOteRecordView(),
+      home: const CustomDrawer(),
     );
   }
 }
