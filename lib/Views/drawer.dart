@@ -70,7 +70,7 @@ class BackDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF2D38FF),
+      backgroundColor: const Color(0xFF0d2260),
       body: Padding(
         padding: const EdgeInsets.all(40),
         child: Column(

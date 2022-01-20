@@ -12,6 +12,7 @@ class NewTask extends StatelessWidget {
   Widget build(BuildContext context) {
     TextEditingController taskontroller = TextEditingController();
     return Scaffold(
+      backgroundColor: const Color(0xFFfbfbff),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(40),
@@ -49,7 +50,7 @@ class NewTask extends StatelessWidget {
                   fontWeight: FontWeight.w400,
                 ),
                 controller: taskontroller,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   border: InputBorder.none,
                   focusedBorder: InputBorder.none,
                   enabledBorder: InputBorder.none,
@@ -59,7 +60,7 @@ class NewTask extends StatelessWidget {
                   hintStyle: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w300,
-                    color: Colors.blueGrey.shade400,
+                    color: Color(0xFFf9f9ff),
                   ),
                   focusColor: Colors.blue,
                 ),
@@ -80,9 +81,9 @@ class NewTask extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Icon(
+                          const Icon(
                             IconlyLight.calendar,
-                            color: Colors.blueGrey.shade400,
+                            color: Color(0xFFf9f9ff),
                           ),
                           Text(
                             'Today',
@@ -155,6 +156,11 @@ class NewTask extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(32.5),
                     color: Colors.blueAccent,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.blue.withOpacity(0.4),
+                      )
+                    ],
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,

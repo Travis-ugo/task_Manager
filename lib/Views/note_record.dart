@@ -7,6 +7,7 @@ class NOteRecordView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFfbfbff),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30),
         child: Column(

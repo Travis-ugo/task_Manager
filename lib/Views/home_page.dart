@@ -21,6 +21,7 @@ class HomePage extends StatelessWidget {
           Align(
             alignment: Alignment.bottomRight,
             child: FloatingActionButton(
+              elevation: 0.5,
               onPressed: () {
                 Navigator.push(
                   context,
