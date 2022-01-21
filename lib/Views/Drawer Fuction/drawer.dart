@@ -1,8 +1,12 @@
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 import 'package:da_fare/Views/home_page.dart';
+import 'package:iconly/iconly.dart';
+import 'package:percent_indicator/circular_percent_indicator.dart';
 
 import 'drawer_functions.dart';
 
@@ -13,7 +17,7 @@ class CustomDrawer extends HookWidget {
     final animationController = useAnimationController(
       duration: const Duration(milliseconds: 250),
     );
-    double maxSlide = 225.0;
+    double maxSlide = 270.0;
 
     final drawerFuntions = DrawerFunctions(
         animationController: animationController,
@@ -21,14 +25,14 @@ class CustomDrawer extends HookWidget {
         context: context);
     return Scaffold(
       body: GestureDetector(
-        onHorizontalDragStart: drawerFuntions.onDragStart,
-        onHorizontalDragEnd: drawerFuntions.onDragEnd,
-        onHorizontalDragUpdate: drawerFuntions.onDragUpdate,
+        // onHorizontalDragStart: drawerFuntions.onDragStart,
+        // onHorizontalDragEnd: drawerFuntions.onDragEnd,
+        // onHorizontalDragUpdate: drawerFuntions.onDragUpdate,
         child: AnimatedBuilder(
           animation: animationController,
           builder: (BuildContext context, Widget? child) {
             double slide = maxSlide * animationController.value;
-            double scale = 1 - (animationController.value * 0.3);
+            double scale = 1 - (animationController.value * 0.190);
             return Stack(
               children: [
                 BackDrawer(
@@ -60,8 +64,18 @@ class CustomDrawer extends HookWidget {
   }
 }
 
+class Menu {
+  final String title;
+  final IconData? icon;
+  Menu({
+    required this.title,
+    this.icon,
+  });
+}
+
 class BackDrawer extends StatelessWidget {
   final Function()? onTap;
+
   const BackDrawer({
     Key? key,
     this.onTap,
@@ -69,60 +83,117 @@ class BackDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<Menu> menu = [
+      Menu(
+        title: 'Templetes',
+        icon: CupertinoIcons.bookmark,
+      ),
+      Menu(
+        title: 'Catergories',
+        icon: IconlyLight.category,
+      ),
+      Menu(
+        title: 'Analytics',
+        icon: IconlyLight.chart,
+      ),
+      Menu(
+        title: 'Settings',
+        icon: IconlyLight.setting,
+      ),
+    ];
+
     return Scaffold(
       backgroundColor: const Color(0xFF0d2260),
       body: Padding(
-        padding: const EdgeInsets.all(40),
+        padding: const EdgeInsets.symmetric(horizontal: 45.0, vertical: 50),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const SizedBox(height: 20),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const CircleAvatar(
-                  backgroundColor: Colors.blueAccent,
-                  radius: 50,
+                CircularPercentIndicator(
+                  restartAnimation: true,
+                  radius: 45.0,
+                  lineWidth: 2.0,
+                  animation: true,
+                  percent: 0.7,
+                  center: const CircleAvatar(
+                    radius: 38,
+                    backgroundColor: Color(0xFF0d2260),
+                    backgroundImage: AssetImage(
+                      'assets/github.png',
+                    ),
+                  ),
+                  circularStrokeCap: CircularStrokeCap.round,
+                  progressColor: Colors.purple,
+                  backgroundColor: Colors.grey.shade500,
                 ),
                 const SizedBox(
                   width: 50,
                 ),
-                Container(
-                  height: 40,
-                  width: 40,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50),
-                    border:
-                        Border.all(color: Colors.blueGrey.shade100, width: 1.5),
-                  ),
-                  child: Center(
-                    child: Icon(
-                      CupertinoIcons.chevron_left,
-                      color: Colors.blueGrey.shade100,
-                      size: 18,
+                GestureDetector(
+                  onTap: onTap,
+                  child: Container(
+                    height: 40,
+                    width: 40,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      border: Border.all(
+                          color: Colors.blueGrey.shade100, width: 0.7),
+                    ),
+                    child: Center(
+                      child: Icon(
+                        CupertinoIcons.chevron_left,
+                        color: Colors.blueGrey.shade100,
+                        size: 16,
+                      ),
                     ),
                   ),
                 ),
               ],
             ),
+            const SizedBox(height: 25),
             const Text(
               "Joy\nMitchell",
               style: TextStyle(
-                fontSize: 32,
+                fontSize: 30,
                 fontWeight: FontWeight.w600,
                 color: Colors.white,
               ),
             ),
-            for (var i = 0; i < 5; i++) fileRow(),
+            const SizedBox(height: 25),
+            for (var item in menu)
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 11),
+                child: Row(
+                  children: [
+                    Icon(item.icon, color: Colors.white),
+                    const SizedBox(width: 15),
+                    Text(
+                      item.title,
+                      style: const TextStyle(color: Colors.white),
+                    ),
+                  ],
+                ),
+              ),
+            const Spacer(),
             const CircleAvatar(
-              backgroundColor: Colors.blueAccent,
+              backgroundColor: Colors.transparent,
               radius: 40,
             ),
-            const Text(
+            const SizedBox(height: 25),
+            Text(
               "Good",
               style: TextStyle(
-                color: Colors.white,
+                color: Colors.grey.shade400,
+                fontWeight: FontWeight.w200,
+                fontSize: 12,
               ),
             ),
+            const SizedBox(height: 5),
             const Text(
               "Consistency",
               style: TextStyle(

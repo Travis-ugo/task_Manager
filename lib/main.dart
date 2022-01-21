@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'Views/drawer.dart';
+import 'Views/Drawer Fuction/drawer.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -13,10 +13,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      darkTheme: ThemeData(primaryColor: Colors.grey.shade800),
+      darkTheme: ThemeData(
+        primaryColor: const Color(0xFF0d2260),
+      ),
       theme: ThemeData(
-        primaryColor: const Color(0xFFf6f6f6),
-        textTheme: GoogleFonts.montserratTextTheme(),
+        primaryColor: const Color(0xFFf9f9ff),
+        textTheme: GoogleFonts.varelaRoundTextTheme(),
       ),
       title: "TodoApp",
       home: const CustomDrawer(),
