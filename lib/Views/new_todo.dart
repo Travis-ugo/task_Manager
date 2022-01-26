@@ -47,7 +47,9 @@ class _NewTaskState extends State<NewTask> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(50),
                         border: Border.all(
-                            color: Colors.blueGrey.shade100, width: 1.0),
+                          color: Colors.blueGrey.shade100,
+                          width: 1.0,
+                        ),
                       ),
                       child: Center(
                         child: Icon(
@@ -189,6 +191,7 @@ class _NewTaskState extends State<NewTask> {
                         print("PressedButton");
                         Navigator.pop(context);
                       });
+                      setState(() {});
                     },
                     child: Container(
                       height: 65,

@@ -142,7 +142,9 @@ class BackDrawer extends StatelessWidget {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(50),
                       border: Border.all(
-                          color: Colors.blueGrey.shade100, width: 0.7),
+                        color: Colors.blueGrey.shade100,
+                        width: 0.7,
+                      ),
                     ),
                     child: Center(
                       child: Icon(

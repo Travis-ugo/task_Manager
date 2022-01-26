@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
-
 import 'package:da_fare/DataBase/database_helperclass.dart';
 import 'package:da_fare/DataBase/grosary_class.dart';
 import 'package:da_fare/Views/new_todo.dart';
@@ -24,7 +23,7 @@ class _HomePageState extends State<HomePage> {
   final ScrollController categories = ScrollController();
   int? selectedId;
   final textController = TextEditingController();
-  final key = GlobalKey<AnimatedListState>();
+  final GlobalKey<AnimatedListState> key = GlobalKey<AnimatedListState>();
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +80,7 @@ class _HomePageState extends State<HomePage> {
                     Text(
                       'categories',
                       style:
-                          TextStyle(fontSize: 14, color: Colors.grey.shade600),
+                      TextStyle(fontSize: 14, color: Colors.grey.shade600),
                     ),
                     const SizedBox(height: 30),
                   ],
@@ -133,52 +132,39 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               SliverToBoxAdapter(
-                child: Column(
-                  children: [
-                    FutureBuilder<List<Grosery>>(
-                      future: DataBaseHelper.instance.getGrosries(),
-                      builder: (BuildContext context,
-                          AsyncSnapshot<List<Grosery>> snapshot) {
-                        if (!snapshot.hasData) {
-                          return const Center(child: Text(""));
-                        }
-                        return snapshot.data!.isEmpty
-                            ? const TaskTile(todoTitle: 'No Task')
-                            : SizedBox(
-                                height: 500,
-                                child: AnimatedList(
-                                  key: key,
-                                  initialItemCount: snapshot.data!.length,
-                                  itemBuilder: (context, index, animation) {
-                                    return SizeTransition(
-                                      axis: Axis.horizontal,
-                                      axisAlignment: 1,
-                                      sizeFactor: animation,
-                                      child: TaskTile(
-                                        todoTitle: snapshot.data![index].name,
-                                      ),
-                                    );
-                                  },
-                                ),
-
-                                // ListView.builder(
-                                //   itemCount: snapshot.data!.length,
-                                //   itemBuilder:
-                                //       (BuildContext context, int index) {
-                                //     return TaskTile(
-                                //         todoTitle: snapshot.data![index].name);
-                                //   },
-                                // ),
-                              );
-                      },
-                    ),
-                  ],
+                child: SizedBox(
+                  height: MediaQuery.of(context).size.height,
+                  child: FutureBuilder<List<Grosery>>(
+                    future: DataBaseHelper.instance.getGrosries(),
+                    builder: (BuildContext context,
+                        AsyncSnapshot<List<Grosery>> snapshot) {
+                      if (!snapshot.hasData) {
+                        return const Center(child: Text("Loading"));
+                      }
+                      return snapshot.data!.isEmpty
+                          ? const TaskTile(todoTitle: 'No Task')
+                          : ListView(
+                        children: snapshot.data!.map((grosery) {
+                          return TaskTile(
+                            todoTitle: grosery.name,
+                            onTap: () {
+                              textController.text = grosery.name;
+                              selectedId = grosery.id;
+                            },
+                            onLongPress: () async {
+                              DataBaseHelper.instance.remove(grosery.id!);
+                              setState(() {});
+                            },
+                          );
+                        }).toList(),
+                      );
+                    },
+                  ),
                 ),
               ),
             ],
           ),
           Positioned(
-            // alignment: Alignment.bottomRight,
             bottom: 30,
             right: 0,
             child: FloatingActionButton(
@@ -378,7 +364,7 @@ class _TaskTickerState extends State<TaskTicker> {
       child: GestureDetector(
         onTap: () {
           setState(
-            () {
+                () {
               selected = !selected;
             },
           );
@@ -396,10 +382,10 @@ class _TaskTickerState extends State<TaskTicker> {
           ),
           child: selected
               ? const Icon(
-                  CupertinoIcons.check_mark,
-                  color: Colors.white,
-                  size: 15,
-                )
+            CupertinoIcons.check_mark,
+            color: Colors.white,
+            size: 15,
+          )
               : null,
         ),
       ),
