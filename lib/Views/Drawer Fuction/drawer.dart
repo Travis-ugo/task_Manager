@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-import 'package:da_fare/Views/home_page.dart';
+import 'package:da_fare/Views/Home/home_page.dart';
 import 'package:iconly/iconly.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
