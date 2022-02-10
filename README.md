@@ -3,10 +3,10 @@
 
 # Hello, there! <img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif" width="30px">
 ## Welcome to Travail à faire Cross Platform todo Mobile Applicaition
-- The Aricah Cross platform Mobile Application which will soon be hosted on google play store and apple app store is built for the purpose of simplifying job search and recruitment process locally and international areas. 
-- the Application is built with various technologies including Googles Flutter, Dart lang, Googles Firebase as it main back end support in the applications beta mood, changes will be made and proper documentations will be made as the the release of the mobile applicarion with a proper API written in PHP lang and Laravel Framework.
-- Simplified code base with the use of flutter native stateless and stateful widget. however code is still under refactor.
-- Built with fultter 2.8, however flutter 2.5 or lower will not be run this program, if so, use "pub upgrade" to get the latest version of flutter.
+- The Travail_a_Faire Mobile Application is a cross Cross platform which will soon be hosted on google play store and apple app store. 
+- the Application is built with various technologies including Googles Flutter, Dart lang, Googles Firebase as it main back end support in the applications beta mood, changes will be made and proper documentations will be made as the the release of the mobile application.
+- Simplified code base with the use of flutter native stateless and stateful widget. however code will be edited soon.
+- Built with fultter 2.8, however flutter 2.5 or lower will not run this program. use "pub upgrade" to get the latest version of flutter.
 <!-- - For proper code documentation, check out the readme file in the "LIB" folder. -->
 
 
