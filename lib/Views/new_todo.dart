@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:iconly/iconly.dart';
 
-import 'package:da_fare/DataBase/database_helperclass.dart';
-import 'package:da_fare/DataBase/grosary_class.dart';
+import '../models/dataBase/database_helperclass.dart';
+import '../models/dataBase/grosary_class.dart';
 
 class NewTask extends StatefulWidget {
   final int? selectedId;

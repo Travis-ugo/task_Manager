@@ -1,7 +1,8 @@
-import 'package:da_fare/DataBase/database_helperclass.dart';
-import 'package:da_fare/DataBase/grosary_class.dart';
+import 'package:da_fare/models/dataBase/database_helperclass.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
+
+import '../models/dataBase/grosary_class.dart';
 
 class ToDoApp extends StatefulWidget {
   const ToDoApp({Key? key}) : super(key: key);

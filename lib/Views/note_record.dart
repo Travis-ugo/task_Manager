@@ -1,15 +1,31 @@
 import 'dart:async';
 
+import 'package:da_fare/utils/constant_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class NOteRecordView extends StatelessWidget {
+final recordingState = StateProvider<bool>((ref) => false);
+final playingState = StateProvider<bool>((ref) => true);
+final recordSecondsTimer = StateProvider<int>((ref) => 0);
+final recordMinutesTimer = StateProvider<int>((ref) => 0);
+
+class NOteRecordView extends ConsumerWidget {
   const NOteRecordView({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final recordMinute = ref.watch(recordMinutesTimer.state).state;
+    final recordSeconds = ref.watch(recordSecondsTimer.state).state;
+
     return Scaffold(
+      floatingActionButton: FloatingActionButton(onPressed: () {
+        // Testing the visibility of saving the present state of the record Timer.
+        // ignore: avoid_print
+        print(
+          '$recordMinute : $recordSeconds',
+        );
+      }),
       backgroundColor: const Color(0xFFfbfbff),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30),
@@ -47,11 +63,6 @@ class NOteRecordView extends StatelessWidget {
     );
   }
 }
-
-final recordingState = StateProvider<bool>((ref) => false);
-final playingState = StateProvider<bool>((ref) => true);
-final recordSecondsTimer = StateProvider<int>((ref) => 0);
-final recordMinutesTimer = StateProvider<int>((ref) => 0);
 
 class TimeController extends ConsumerWidget {
   const TimeController({Key? key}) : super(key: key);
@@ -157,7 +168,8 @@ class SoundTrack extends StatelessWidget {
                 size: 20,
               ),
               Text(
-                "Voice Recorder",
+                // "Voice Recorder",
+                CatalinaText.voiceRecorder,
                 style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
@@ -177,7 +189,9 @@ class SoundTrack extends StatelessWidget {
             builder: (BuildContext context, WidgetRef ref, Widget? child) {
               final playRecordedSound = ref.watch(playingState.state);
               return Text(
-                playRecordedSound.state ? 'Recording...' : 'Playing..',
+                playRecordedSound.state
+                    ? CatalinaText.recording
+                    : CatalinaText.playing,
                 style: const TextStyle(
                   fontSize: 12,
                   fontWeight: FontWeight.w500,

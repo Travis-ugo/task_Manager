@@ -1,10 +1,11 @@
-import 'package:da_fare/DataBase/database_helperclass.dart';
 import 'package:da_fare/Views/Home/catergories.dart';
 import 'package:da_fare/Views/Home/task_tile.dart';
 import 'package:flutter/material.dart';
-import 'package:da_fare/DataBase/grosary_class.dart';
 import 'package:da_fare/Views/new_todo.dart';
 import 'package:iconly/iconly.dart';
+
+import '../../models/dataBase/database_helperclass.dart';
+import '../../models/dataBase/grosary_class.dart';
 
 class HomePage extends StatefulWidget {
   final Function()? onTaped;
