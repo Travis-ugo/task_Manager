@@ -1,5 +1,5 @@
-import 'package:da_fare/Audio%20File/timer.dart';
 import 'package:flutter/material.dart';
+import '../../views/note_record.dart';
 import 'sound_player.dart';
 import 'sound_recoder.dart';
 
