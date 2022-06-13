@@ -1,5 +1,5 @@
 name: da_fare
-description: A new Flutter project.
+description: Task managing multi-platform application
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
@@ -13,11 +13,11 @@ dependencies:
 
 
   cupertino_icons: ^1.0.2
+  flutter_bloc: ^8.0.1
   firebase_core: ^1.13.1
   firebase_auth: ^3.3.10
   google_sign_in: ^5.2.4
   cloud_firestore: ^3.1.10
-  sqflite: ^2.0.1
   path_provider: ^2.0.8
   path: ^1.8.0
   font_awesome_flutter: ^9.2.0
